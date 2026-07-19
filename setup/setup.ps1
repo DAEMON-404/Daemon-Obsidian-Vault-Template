@@ -1,6 +1,6 @@
-<#
+﻿<#
 .SYNOPSIS
-    Daemon-Vault-Template — vault initialiser (Windows / PowerShell).
+    Daemon-Vault-Template - vault initialiser (Windows / PowerShell).
 
 .DESCRIPTION
     Copies the template vault to a new location, personalises the placeholder
@@ -145,7 +145,7 @@ function Download-Plugins {
         Info 'Fetching plugin registry...'
         $registry = Invoke-RestMethod -Uri $RegistryUrl -ErrorAction Stop
     } catch {
-        Err "Could not fetch registry — skipping. ($($_.Exception.Message))"
+        Err "Could not fetch registry - skipping. ($($_.Exception.Message))"
         return
     }
     $index = @{}
@@ -153,7 +153,7 @@ function Download-Plugins {
 
     $ok = 0; $fail = 0
     foreach ($id in Get-PluginIds) {
-        if (-not $index.ContainsKey($id)) { Warn "$id — not found in registry, skipping."; $fail++; continue }
+        if (-not $index.ContainsKey($id)) { Warn "$id - not found in registry, skipping."; $fail++; continue }
         $repo = $index[$id]
         $dir  = Join-Path $TargetDir ".obsidian\plugins\$id"
         New-Item -ItemType Directory -Force -Path $dir | Out-Null
@@ -164,7 +164,7 @@ function Download-Plugins {
             try { Invoke-WebRequest -Uri "$base/styles.css" -OutFile (Join-Path $dir 'styles.css') -ErrorAction Stop } catch { }
             Info "$id  <-  $repo"; $ok++
         } catch {
-            Warn "$id — release download failed ($repo). Install it in-app instead."
+            Warn "$id - release download failed ($repo). Install it in-app instead."
             $fail++
         }
     }
@@ -176,7 +176,7 @@ if ($DownloadPlugins) { Download-Plugins }
 # ---------------------------------------------------------------------------
 # Final instructions
 # ---------------------------------------------------------------------------
-Step 'Almost done — final manual steps in Obsidian'
+Step 'Almost done - final manual steps in Obsidian'
 Write-Host "  1. Open Obsidian > 'Open folder as vault' > select:"
 Write-Host "       $TargetDir"
 Write-Host "  2. Settings > Community plugins > turn OFF Restricted mode."

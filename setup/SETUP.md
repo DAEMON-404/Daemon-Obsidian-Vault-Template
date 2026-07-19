@@ -61,12 +61,22 @@ template frontmatter, so they are safe to ignore if you don't need them.
 | `--force` | `-Force` | Copy into a non-empty target |
 | `--yes` | `-Yes` | Accept all defaults, never prompt |
 
-Non-interactive example:
+Non-interactive examples:
 
 ```bash
+# macOS / Linux
 ./setup/setup.sh ~/MyVault --yes --author "Ada Lovelace" \
-  --institution "Example University" --course-tag CS101 --year-tag year-1
+  --institution "Example University" --course-tag CS101 --year-tag year-1 --download-plugins
 ```
+
+```powershell
+# Windows (PowerShell)
+./setup/setup.ps1 -TargetDir "$HOME\MyVault" -Yes -Author "Ada Lovelace" `
+  -Institution "Example University" -CourseTag CS101 -YearTag year-1 -DownloadPlugins
+```
+
+With every identity value supplied and `-Yes` set, the script runs start to
+finish without a single prompt — handy for scripted or repeated vault creation.
 
 ## Community plugins
 
@@ -94,6 +104,47 @@ Two plugins are **required** for the dashboards and note banners to render:
 
 Everything else is optional quality-of-life.
 
+## Visual walkthrough
+
+Screenshots of the manual steps the script prints at the end. Everything below
+lives in **Settings** (the gear icon, bottom-left of the app) unless noted.
+
+### 1. Enable Dataview JavaScript queries
+
+The note banner and the dashboard are DataviewJS views, so they stay blank
+until this is switched on: **Settings ▸ Dataview ▸ Enable JavaScript queries**
+(leave *Enable inline queries* on as well). The banner renders as soon as the
+toggle flips — no reload needed.
+
+![Dataview settings with "Enable JavaScript queries" switched on, and the Active Context banner rendering below](assets/enable-dataview-js.png)
+
+### 2. Point Templater at the template folder
+
+**Settings ▸ Templater ▸ Template folder location** → `00Meta/Templates`.
+While you are on this page, scroll down and also turn on **Trigger Templater
+on new file creation** and **Folder templates**, mapping `/` →
+`00Meta/Templates/Default-Note-Template.md` — that is what stamps every new
+note with the default template automatically.
+
+![Templater settings with the template folder location set to 00Meta/Templates](assets/templater-folder-setup.png)
+
+### 3. Create a note from a template
+
+Open the command palette (**Ctrl + P** / **Cmd + P**) and run **Templater:
+Create new note from template**, then pick a template — *General-Note-Template*
+adapts to the note type you choose. If you use it a lot, bind it to a hotkey in
+**Settings ▸ Hotkeys**.
+
+![Command palette showing the Templater commands and the template picker with Default and General note templates](assets/templater-new-note.png)
+
+### 4. What you should end up with
+
+`Dashboard.md` opens on startup: the active-context banner, a *Continue
+working* panel, recent notes, and vault-review stats — all rendered live by
+Dataview.
+
+![The finished vault: Dashboard open with the banner, recent notes table, and vault review stats](assets/vault-overview.png)
+
 ## Troubleshooting
 
 - **Dashboards show code instead of tables** → Dataview JavaScript Queries is off, or
@@ -104,5 +155,11 @@ Everything else is optional quality-of-life.
 - **Windows: "running scripts is disabled"** → run
   `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` in the same session,
   then re-run the script.
+- **"Failed to load plugin …" after install** → the download was incomplete or
+  corrupted. Toggle the plugin off, delete it with the bin icon, then
+  **Community plugins ▸ Browse**, search for it and reinstall — your settings
+  for it are kept.
+
+  ![Fixing a plugin that failed to load: toggle off, delete, then Browse, search, and reinstall](assets/plugin-failed-to-load.png)
 - **Icons missing** → the Iconize/Icons plugins download icon packs on first use;
   open their settings and add a pack (e.g. Font Awesome / Lucide).
