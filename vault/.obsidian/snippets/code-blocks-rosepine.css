@@ -1,0 +1,76 @@
+/* ============================================================================
+   CODE BLOCKS · ROSÉ PINE DARK        (NetrunnerVault snippet, standalone)
+   Dark terminal-style code blocks with per-language neon rails + scanlines.
+   Kept in sync with the NetrunnerVault theme. Safe to enable on any theme;
+   if the NetrunnerVault theme is already active you don't need this — the
+   theme already applies it (enabling both is harmless, just redundant).
+   ============================================================================ */
+:root {
+  --rp-base:#191724; --rp-surface:#1f1d2e; --rp-overlay:#26233a;
+  --rp-muted:#6e6a86; --rp-subtle:#908caa; --rp-text:#e0def4;
+  --rp-love:#eb6f92; --rp-gold:#f6c177; --rp-rose:#ebbcba;
+  --rp-pine:#31748f; --rp-foam:#9ccfd8; --rp-iris:#c4a7e7;
+  --rp-hl-med:#403d52; --rp-leaf:#a6d189;
+  --rp-mono:"JetBrains Mono","FiraCode Nerd Font","Fira Code",ui-monospace,monospace;
+}
+
+/* syntax tokens (edit + reading view) */
+.theme-light, .theme-dark {
+  --code-background:var(--rp-base);
+  --code-normal:var(--rp-text);   --code-comment:var(--rp-muted);
+  --code-keyword:var(--rp-pine);  --code-function:var(--rp-rose);
+  --code-string:var(--rp-gold);   --code-property:var(--rp-foam);
+  --code-value:var(--rp-iris);    --code-operator:var(--rp-love);
+  --code-punctuation:var(--rp-subtle); --code-tag:var(--rp-love); --code-important:var(--rp-love);
+}
+
+/* inline code chip */
+.markdown-rendered code:not(pre code), .cm-s-obsidian .cm-inline-code {
+  color:var(--rp-foam)!important; background:var(--rp-overlay)!important;
+  border:1px solid color-mix(in srgb,var(--rp-foam) 30%,transparent)!important;
+  border-radius:5px!important; padding:.08em .42em!important;
+  font-family:var(--rp-mono)!important; font-size:.84em!important;
+  box-shadow:0 0 6px color-mix(in srgb,var(--rp-foam) 18%,transparent);
+}
+
+/* block frame */
+.markdown-rendered pre:has(> code) {
+  position:relative; background:var(--rp-base)!important; color:var(--rp-text);
+  border:1px solid var(--rp-hl-med)!important; border-radius:10px!important;
+  padding:2.4em 1em 1em 1em!important; margin:1.1em 0!important; overflow:auto!important;
+  box-shadow:0 8px 26px rgba(25,23,36,.28), inset 0 0 60px rgba(0,0,0,.20);
+}
+.markdown-rendered pre:has(> code) > code {
+  position:relative; z-index:1; color:var(--rp-text)!important;
+  font-family:var(--rp-mono)!important; font-size:.86em!important; line-height:1.6!important;
+  background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(224,222,244,.018) 3px,rgba(224,222,244,.018) 4px);
+}
+.markdown-rendered pre:has(> code)::before {
+  content:""; position:absolute; top:0; left:0; right:0; height:1.8em; border-radius:10px 10px 0 0;
+  background:linear-gradient(180deg,var(--rp-surface),rgba(31,29,46,0)); border-bottom:1px solid var(--rp-hl-med);
+}
+.markdown-rendered pre:has(> code)::after {
+  content:""; position:absolute; top:.62em; left:.9em; width:.62em; height:.62em; border-radius:50%;
+  background:var(--rp-love); box-shadow:1.05em 0 0 var(--rp-gold),2.1em 0 0 var(--rp-leaf),0 0 6px rgba(235,111,146,.6);
+}
+.markdown-rendered pre:has(> code) button.copy-code-button {
+  top:.35em; right:.5em; color:var(--rp-subtle); background:var(--rp-overlay);
+  border:1px solid var(--rp-hl-med); border-radius:6px; font-family:var(--rp-mono); font-size:.72em; z-index:3;
+}
+.markdown-rendered pre:has(> code) button.copy-code-button:hover { color:var(--rp-foam); border-color:var(--rp-foam); }
+
+/* per-language neon rails */
+.markdown-rendered pre:has(code.language-bash),.markdown-rendered pre:has(code.language-sh),
+.markdown-rendered pre:has(code.language-shell),.markdown-rendered pre:has(code.language-zsh),
+.markdown-rendered pre:has(code.language-console),.markdown-rendered pre:has(code.language-kali){border-left:3px solid var(--rp-leaf)!important}
+.markdown-rendered pre:has(code.language-python),.markdown-rendered pre:has(code.language-py){border-left:3px solid var(--rp-foam)!important}
+.markdown-rendered pre:has(code.language-powershell),.markdown-rendered pre:has(code.language-ps1),
+.markdown-rendered pre:has(code.language-pwsh){border-left:3px solid var(--rp-pine)!important}
+.markdown-rendered pre:has(code.language-json),.markdown-rendered pre:has(code.language-yaml),
+.markdown-rendered pre:has(code.language-yml){border-left:3px solid var(--rp-gold)!important}
+.markdown-rendered pre:has(code.language-sql){border-left:3px solid var(--rp-iris)!important}
+.markdown-rendered pre:has(code.language-nix),.markdown-rendered pre:has(code.language-nixos){border-left:3px solid var(--rp-foam)!important}
+
+/* editor code blocks dark too */
+.markdown-source-view.mod-cm6 .HyperMD-codeblock-bg { background:var(--rp-base)!important; border-left:1px solid var(--rp-hl-med); border-right:1px solid var(--rp-hl-med); }
+.markdown-source-view.mod-cm6 .HyperMD-codeblock { font-family:var(--rp-mono); color:var(--rp-text); }

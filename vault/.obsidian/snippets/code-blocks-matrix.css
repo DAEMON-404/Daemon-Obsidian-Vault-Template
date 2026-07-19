@@ -1,0 +1,162 @@
+/* ================================================================
+   MATRIX GREEN CODE BLOCKS - DIGITAL RAIN AESTHETIC
+   "Wake up, Neo..." theme
+   ================================================================ */
+
+:root {
+    --matrix-green: #00ff41;
+    --matrix-dark-green: #008f11;
+    --matrix-light-green: #aaffaa;
+    --matrix-bg: #0d0208;
+    --matrix-deep: #000000;
+}
+
+/* ================================================================
+   MATRIX DIGITAL RAIN THEME
+   ================================================================ */
+
+pre:has(code.language-matrix),
+pre:has(code.language-bash[data-theme="matrix"]) {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 255, 65, 0.05) 0%,
+            rgba(0, 0, 0, 0.9) 20%,
+            rgba(0, 0, 0, 0.95) 80%,
+            rgba(0, 255, 65, 0.05) 100%
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 1px,
+            rgba(0, 255, 65, 0.03) 1px,
+            rgba(0, 255, 65, 0.03) 2px
+        ),
+        #0d0208 !important;
+    border: 2px solid var(--matrix-green) !important;
+    border-left: 8px solid var(--matrix-dark-green) !important;
+    border-radius: 8px !important;
+    padding: 25px !important;
+    box-shadow:
+        0 0 50px rgba(0, 255, 65, 0.4),
+        0 0 100px rgba(0, 255, 65, 0.2),
+        inset 0 0 60px rgba(0, 255, 65, 0.05),
+        inset 0 0 100px rgba(0, 0, 0, 0.8) !important;
+    position: relative !important;
+    margin: 20px 0 !important;
+    overflow: hidden !important;
+    animation: matrix-flicker 0.15s infinite !important;
+}
+
+@keyframes matrix-flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.98; }
+}
+
+/* Digital rain effect */
+pre:has(code.language-matrix)::after,
+pre:has(code.language-bash[data-theme="matrix"])::after {
+    content: "ｱｲｳｴｵ ｶｷｸｹｺ ｻｼｽｾｿ ﾀﾁﾂﾃﾄ ﾅﾆﾇﾈﾉ 0 1 0 1 1 0 ｱｲｳｴｵ" !important;
+    position: absolute !important;
+    top: -20px !important;
+    left: 0 !important;
+    right: 0 !important;
+    color: var(--matrix-green) !important;
+    font-size: 10px !important;
+    text-align: center !important;
+    opacity: 0.3 !important;
+    animation: rain-fall 8s linear infinite !important;
+    pointer-events: none !important;
+    z-index: 10 !important;
+    text-shadow: 0 0 10px var(--matrix-green) !important;
+    letter-spacing: 0.5em !important;
+}
+
+@keyframes rain-fall {
+    0% {
+        top: -20px;
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.3;
+    }
+    90% {
+        opacity: 0.3;
+    }
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+/* Matrix header */
+pre:has(code.language-matrix) code::before,
+pre:has(code.language-bash[data-theme="matrix"]) code::before {
+    content: "█▓▒░ WAKE UP, NEO... ░▒▓█\A\A> THE MATRIX HAS YOU...\A> FOLLOW THE WHITE RABBIT.\A> KNOCK, KNOCK.\A\A[ SYSTEM ACCESS GRANTED ]\A[ MAINFRAME BREACHED ]\A[ REALITY.EXE TERMINATED ]\A━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\A\A" !important;
+    display: block !important;
+    color: var(--matrix-green) !important;
+    font-family: 'Courier New', monospace !important;
+    font-weight: bold !important;
+    font-size: 13px !important;
+    margin-bottom: 18px !important;
+    padding-bottom: 14px !important;
+    border-bottom: 2px solid var(--matrix-dark-green) !important;
+    text-shadow:
+        0 0 10px var(--matrix-green),
+        0 0 20px var(--matrix-green),
+        0 0 30px var(--matrix-dark-green) !important;
+    white-space: pre-wrap !important;
+    line-height: 1.6 !important;
+    animation: terminal-typing 3s steps(40) 1 !important;
+    letter-spacing: 0.08em !important;
+}
+
+code.language-matrix,
+code.language-bash[data-theme="matrix"] {
+    color: var(--matrix-light-green) !important;
+    font-family: 'Courier New', monospace !important;
+    font-size: 14px !important;
+    line-height: 1.8 !important;
+    text-shadow:
+        0 0 8px var(--matrix-green),
+        0 0 15px rgba(0, 255, 65, 0.5) !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.05em !important;
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+/* Falling code effect background */
+pre:has(code.language-matrix)::before,
+pre:has(code.language-bash[data-theme="matrix"])::before {
+    content: "1 0 1 1 0 1 0 0 1 1 1 0 1 0 1 0 1 1 0 1 0 0 1 1 1 0" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    color: var(--matrix-dark-green) !important;
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    opacity: 0.1 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+    text-shadow: 0 0 5px var(--matrix-green) !important;
+    animation: binary-rain 15s linear infinite !important;
+}
+
+@keyframes binary-rain {
+    0% { transform: translateY(-10%); }
+    100% { transform: translateY(10%); }
+}
+
+/* Phosphor glow effect */
+pre:has(code.language-matrix) code,
+pre:has(code.language-bash[data-theme="matrix"]) code {
+    filter: contrast(1.1) brightness(1.05) !important;
+}
+
+/* ================================================================
+   END MATRIX THEME
+   ================================================================ */

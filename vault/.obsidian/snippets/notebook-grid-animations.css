@@ -1,0 +1,271 @@
+/* ============================================
+   NOTEBOOK GRID BACKGROUND & IN-DOCUMENT ANIMATIONS
+   Classic notebook feel with interactive elements
+   ============================================ */
+
+/* Faint grid background for notes */
+.markdown-preview-view,
+.markdown-source-view.cm-s-obsidian {
+    background-image: 
+        linear-gradient(rgba(144, 140, 170, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(144, 140, 170, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: -1px -1px;
+}
+
+/* Subtle notebook paper effect */
+.markdown-preview-view::before,
+.markdown-source-view::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            transparent,
+            transparent 24px,
+            rgba(144, 140, 170, 0.05) 24px,
+            rgba(144, 140, 170, 0.05) 25px
+        );
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Red margin line like a real notebook - disabled to prevent heading indentation */
+/* Uncomment below if you want the notebook margin line effect */
+/*
+.markdown-reading-view .markdown-preview-section,
+.cm-content {
+    border-left: 2px solid rgba(242, 143, 173, 0.15);
+    padding-left: 60px;
+    margin-left: 40px;
+}
+*/
+
+/* Callout boxes - hover animations */
+.callout {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s ease,
+                background-color 0.3s ease;
+}
+
+.callout:hover {
+    transform: translateX(8px) translateY(-4px);
+    box-shadow: -4px 8px 20px rgba(196, 167, 231, 0.3);
+}
+
+/* Callout title bounce on hover */
+.callout-title {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.callout:hover .callout-title {
+    transform: translateY(-2px);
+}
+
+/* Blockquotes - slide in on hover */
+blockquote {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 4px solid rgba(196, 167, 231, 0.4);
+}
+
+blockquote:hover {
+    transform: translateX(8px);
+    border-left-color: rgba(196, 167, 231, 0.8);
+    background: rgba(196, 167, 231, 0.05);
+    box-shadow: 0 4px 12px rgba(196, 167, 231, 0.2);
+}
+
+/* Tables - row hover effect */
+table tr {
+    transition: all 0.2s ease;
+}
+
+table tr:hover {
+    background: rgba(196, 167, 231, 0.08);
+    transform: scale(1.01);
+    box-shadow: 0 2px 8px rgba(196, 167, 231, 0.2);
+}
+
+/* List items - pop on hover */
+.markdown-preview-view li {
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    padding: 2px 0;
+}
+
+.markdown-preview-view li:hover {
+    transform: translateX(4px);
+    padding-left: 4px;
+}
+
+/* Checkbox items - special hover */
+.task-list-item {
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    padding: 4px;
+    margin: 2px 0;
+}
+
+.task-list-item:hover {
+    background: rgba(196, 167, 231, 0.08);
+    transform: translateX(6px);
+    box-shadow: -2px 2px 8px rgba(196, 167, 231, 0.2);
+}
+
+/* Completed tasks - strike with animation */
+.task-list-item.is-checked {
+    opacity: 0.6;
+    position: relative;
+}
+
+.task-list-item.is-checked::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,
+                transparent,
+                rgba(156, 207, 216, 0.6),
+                transparent);
+    animation: strikethrough 0.4s ease-out;
+}
+
+@keyframes strikethrough {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Images - zoom and tilt on hover */
+.markdown-preview-view img {
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+}
+
+.markdown-preview-view img:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 12px 40px rgba(196, 167, 231, 0.3);
+}
+
+/* Embeds - lift on hover */
+.markdown-embed {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.markdown-embed:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(196, 167, 231, 0.25);
+    border-color: rgba(196, 167, 231, 0.4);
+}
+
+/* Footnote references - pulse on hover */
+.footnote-ref {
+    transition: all 0.3s ease;
+}
+
+.footnote-ref:hover {
+    transform: scale(1.2);
+    animation: pulseBadge 0.6s ease-in-out;
+}
+
+@keyframes pulseBadge {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(196, 167, 231, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(196, 167, 231, 0);
+    }
+}
+
+/* Horizontal rules - expand on scroll into view */
+hr {
+    transition: all 0.5s ease;
+    transform: scaleX(0.8);
+    opacity: 0.5;
+}
+
+hr:hover {
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+/* Code blocks - subtle border pulse on hover */
+.markdown-preview-view pre:hover {
+    border-color: rgba(196, 167, 231, 0.4);
+    box-shadow: 0 0 15px rgba(196, 167, 231, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* Inline code - highlight on hover */
+.markdown-preview-view code:hover {
+    background: rgba(196, 167, 231, 0.15);
+    transform: scale(1.05);
+    transition: all 0.2s ease;
+}
+
+/* Headers - underline slide in on hover */
+.markdown-preview-view h2,
+.markdown-preview-view h3,
+.markdown-preview-view h4 {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.markdown-preview-view h2::after,
+.markdown-preview-view h3::after,
+.markdown-preview-view h4::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg,
+                rgba(196, 167, 231, 0.6),
+                rgba(156, 207, 216, 0.6));
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.markdown-preview-view h2:hover::after,
+.markdown-preview-view h3:hover::after,
+.markdown-preview-view h4:hover::after {
+    width: 100%;
+}
+
+/* Tooltips and popovers - bounce in */
+.tooltip,
+.popover {
+    animation: bounceIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Backlinks - slide up on hover */
+.backlink {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backlink:hover {
+    transform: translateY(-2px);
+    background: rgba(196, 167, 231, 0.08);
+    box-shadow: 0 4px 12px rgba(196, 167, 231, 0.15);
+}

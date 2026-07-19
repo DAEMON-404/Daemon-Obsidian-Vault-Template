@@ -1,0 +1,52 @@
+/* ============================================
+   FIX HEADER INDENTATION
+   Removes progressive indentation from headers
+   ============================================ */
+
+/* Remove any left margin, padding, or text-indent from all headers */
+.markdown-preview-view h1,
+.markdown-preview-view h2,
+.markdown-preview-view h3,
+.markdown-preview-view h4,
+.markdown-preview-view h5,
+.markdown-preview-view h6,
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6,
+.HyperMD-header-1,
+.HyperMD-header-2,
+.HyperMD-header-3,
+.HyperMD-header-4,
+.HyperMD-header-5,
+.HyperMD-header-6,
+.cm-line.HyperMD-header-1,
+.cm-line.HyperMD-header-2,
+.cm-line.HyperMD-header-3,
+.cm-line.HyperMD-header-4,
+.cm-line.HyperMD-header-5,
+.cm-line.HyperMD-header-6 {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    text-indent: 0 !important;
+}
+
+/* Specifically target markdown reading and source views */
+.markdown-reading-view h1,
+.markdown-reading-view h2,
+.markdown-reading-view h3,
+.markdown-reading-view h4,
+.markdown-reading-view h5,
+.markdown-reading-view h6,
+.markdown-source-view h1,
+.markdown-source-view h2,
+.markdown-source-view h3,
+.markdown-source-view h4,
+.markdown-source-view h5,
+.markdown-source-view h6 {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    text-indent: 0 !important;
+}

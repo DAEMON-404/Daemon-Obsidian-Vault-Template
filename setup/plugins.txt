@@ -1,0 +1,34 @@
+# Community plugins used by this vault.
+# Format: <plugin-id>  # Friendly name
+# Lines starting with # and blank lines are ignored.
+# The setup scripts read this file for both the manual-install checklist
+# and the optional --download-plugins fetch.
+
+dataview                      # Dataview  (REQUIRED for dashboards; enable JavaScript Queries)
+templater-obsidian            # Templater  (REQUIRED for note templates + banners)
+obsidian-style-settings       # Style Settings  (theme tuning)
+make-md                       # Make.md  (spaces / folder contexts)
+omnisearch                    # Omnisearch
+obsidian-icon-folder          # Iconize
+obsidian-icons-plugin         # Icons
+obsidian-kanban               # Kanban
+obsidian-full-calendar        # Full Calendar
+obsidian-excalidraw-plugin    # Excalidraw
+obsidian-diagrams-net         # Diagrams.net
+obsidian-mindmap-nextgen      # Mindmap NextGen
+canvas-mindmap                # Canvas Mindmap
+automatic-table-of-contents   # Automatic Table of Contents
+table-editor-obsidian         # Advanced Tables
+better-export-pdf             # Better Export PDF
+obsidian-markdown-export-plugin  # Markdown Export
+obsidian-html-plugin          # HTML Reader
+obsidian-pandoc               # Pandoc Export
+obsidian-emoji-toolbar        # Emoji Toolbar
+emoji-shortcodes              # Emoji Shortcodes
+oz-image-plugin               # Ozan's Image in Editor
+convert-url-to-iframe         # Convert URL to iframe
+url-into-selection            # Paste URL into selection
+obsidian-hotkeys-for-templates   # Hotkeys for templates
+various-complements           # Various Complements
+obsidian-vimrc-support        # Vimrc Support
+obsidian-discordrpc           # Discord Rich Presence  (optional; broadcasts activity)

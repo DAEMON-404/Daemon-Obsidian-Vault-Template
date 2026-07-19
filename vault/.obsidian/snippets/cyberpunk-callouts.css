@@ -1,0 +1,44 @@
+/* ============================================================================
+   CYBERPUNK CALLOUTS · ROSÉ PINE DARK   (NetrunnerVault snippet, standalone)
+   Dark Rosé Pine callouts with neon accents, corner brackets + glow.
+   Kept in sync with the NetrunnerVault theme (redundant if the theme is on).
+   ============================================================================ */
+:root {
+  --rp-surface:#1f1d2e; --rp-overlay:#26233a; --rp-text:#e0def4; --rp-gold:#f6c177; --rp-foam:#9ccfd8;
+  --rp-love-rgb:235,111,146; --rp-gold-rgb:246,193,119; --rp-rose-rgb:235,188,186;
+  --rp-pine-rgb:49,116,143;  --rp-foam-rgb:156,207,216; --rp-iris-rgb:196,167,231;
+  --rp-leaf-rgb:166,209,137; --rp-subtle-rgb:144,140,170;
+  --rp-mono:"JetBrains Mono","Fira Code",ui-monospace,monospace;
+}
+
+.callout {
+  border-radius:10px!important; overflow:hidden;
+  background:var(--rp-surface)!important; color:var(--rp-text)!important;
+  border:1px solid color-mix(in srgb,rgb(var(--callout-color)) 45%,transparent)!important;
+  border-left:4px solid rgb(var(--callout-color))!important;
+  box-shadow:0 4px 16px rgba(25,23,36,.22),0 0 14px color-mix(in srgb,rgb(var(--callout-color)) 14%,transparent),
+             inset 0 0 40px rgba(0,0,0,.15); position:relative;
+}
+.callout .callout-title { background:color-mix(in srgb,rgb(var(--callout-color)) 14%,var(--rp-surface)); color:var(--rp-text); padding:.55em .8em; font-family:var(--rp-mono); font-weight:700; }
+.callout .callout-title-inner { color:rgb(var(--callout-color)); }
+.callout .callout-icon svg { color:rgb(var(--callout-color)); filter:drop-shadow(0 0 5px color-mix(in srgb,rgb(var(--callout-color)) 65%,transparent)); }
+.callout .callout-content, .callout .callout-content p, .callout .callout-content li { color:var(--rp-text); }
+.callout a.internal-link,.callout a.external-link { color:var(--rp-foam); }
+.callout code:not(pre code){ color:var(--rp-gold); background:var(--rp-overlay); }
+.callout::after { content:""; position:absolute; top:6px; right:6px; width:12px; height:12px; border-top:2px solid rgb(var(--callout-color)); border-right:2px solid rgb(var(--callout-color)); opacity:.7; }
+
+.callout[data-callout="info"],.callout[data-callout="todo"]{--callout-color:var(--rp-foam-rgb)}
+.callout[data-callout="note"]{--callout-color:var(--rp-iris-rgb)}
+.callout[data-callout="abstract"],.callout[data-callout="summary"]{--callout-color:var(--rp-pine-rgb)}
+.callout[data-callout="tip"],.callout[data-callout="hint"]{--callout-color:var(--rp-foam-rgb)}
+.callout[data-callout="success"],.callout[data-callout="check"],.callout[data-callout="done"]{--callout-color:var(--rp-leaf-rgb)}
+.callout[data-callout="question"],.callout[data-callout="help"],.callout[data-callout="faq"]{--callout-color:var(--rp-gold-rgb)}
+.callout[data-callout="warning"],.callout[data-callout="caution"],.callout[data-callout="attention"]{--callout-color:var(--rp-gold-rgb)}
+.callout[data-callout="danger"],.callout[data-callout="error"],.callout[data-callout="fail"],
+.callout[data-callout="failure"],.callout[data-callout="missing"],.callout[data-callout="bug"]{--callout-color:var(--rp-love-rgb)}
+.callout[data-callout="example"]{--callout-color:var(--rp-iris-rgb)}
+.callout[data-callout="quote"],.callout[data-callout="cite"]{--callout-color:var(--rp-subtle-rgb)}
+.callout[data-callout="terminal"]{--callout-color:var(--rp-leaf-rgb)}
+.callout[data-callout="terminal"] .callout-title{font-family:var(--rp-mono)}
+.callout[data-callout="code"]{--callout-color:var(--rp-foam-rgb)}
+.callout[data-callout="team"]{--callout-color:var(--rp-iris-rgb)}

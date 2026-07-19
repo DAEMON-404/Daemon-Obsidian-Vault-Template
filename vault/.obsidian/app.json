@@ -1,0 +1,12 @@
+{
+  "attachmentFolderPath": "./attachments",
+  "promptDelete": true,
+  "pdfExportSettings": {
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "1",
+    "downscalePercent": 100
+  },
+  "alwaysUpdateLinks": true,
+  "openBehavior": "file:Dashboard"
+}

@@ -1,0 +1,97 @@
+/* ============================================
+   GLASSMORPHISM EFFECTS
+   Modern frosted glass aesthetic
+   ============================================ */
+
+/* Glass modals and dialogs */
+.modal-container,
+.modal,
+.prompt {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Glass sidebars */
+.workspace-split.mod-left-split,
+.workspace-split.mod-right-split {
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(15px) saturate(150%);
+    -webkit-backdrop-filter: blur(15px) saturate(150%);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Glass settings panels */
+.vertical-tab-content,
+.horizontal-tab-content {
+    background: rgba(255, 255, 255, 0.04) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 12px;
+}
+
+/* Glass command palette */
+.suggestion-container {
+    background: rgba(255, 255, 255, 0.06) !important;
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 16px;
+}
+
+/* Glass hover effects on suggestions */
+.suggestion-item.is-selected {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Glass ribbons */
+.workspace-ribbon.mod-left,
+.workspace-ribbon.mod-right {
+    background: rgba(255, 255, 255, 0.02) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Glass file explorer items on hover */
+.nav-file-title:hover,
+.nav-folder-title:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 8px;
+}
+
+/* Glass buttons */
+button {
+    background: rgba(255, 255, 255, 0.06) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Glass tabs */
+.workspace-tab-header {
+    background: rgba(255, 255, 255, 0.04) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.workspace-tab-header.is-active {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-bottom: 2px solid rgba(138, 180, 248, 0.6);
+}

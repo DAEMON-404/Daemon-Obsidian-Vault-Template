@@ -1,0 +1,192 @@
+/* ============================================
+   SMOOTH ANIMATIONS & TRANSITIONS
+   Buttery smooth interactions
+   ============================================ */
+
+/* Fade in animation for opened files */
+.markdown-preview-view,
+.markdown-source-view {
+    animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Smooth slide in for modals */
+.modal {
+    animation: slideInModal 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideInModal {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Bouncy button press effect */
+button:active {
+    transform: scale(0.95) !important;
+    transition: transform 0.1s ease;
+}
+
+/* Smooth expand/collapse animations - removed to prevent folder indent bug */
+
+/* Hover lift effect on cards and panels - disabled to prevent folder indent bug */
+.markdown-embed,
+.cm-embed-block {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.markdown-embed:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Pulse animation for active items */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.is-active {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Smooth sidebar toggle - removed to prevent folder indent bug */
+
+/* Ripple effect on clickable items */
+.clickable-icon {
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-file-title,
+.nav-folder-title {
+    position: relative;
+    overflow: hidden;
+    /* Removed transition to prevent folder indent bug */
+}
+
+.clickable-icon:active::after,
+.nav-file-title:active::after,
+.nav-folder-title:active::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+    to {
+        width: 200px;
+        height: 200px;
+        opacity: 0;
+    }
+}
+
+/* Smooth rotation for collapse icons */
+.collapse-icon {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Removed .is-collapsed .collapse-icon rotation to prevent folder indent bug */
+
+/* Smooth tab switching */
+.workspace-tab-header {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glow effect on focus */
+input:focus,
+textarea:focus,
+.cm-editor.cm-focused {
+    box-shadow: 0 0 0 2px rgba(138, 180, 248, 0.3),
+                0 0 20px rgba(138, 180, 248, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Slide in from bottom for status bar */
+.status-bar {
+    animation: slideInBottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideInBottom {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Smooth color transitions - scoped to prevent folder indent bug */
+button,
+input,
+textarea,
+.clickable-icon,
+.nav-action-button {
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease;
+}
+
+/* Floating animation for ribbons */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.workspace-ribbon-collapse-btn:hover {
+    animation: float 2s ease-in-out infinite;
+}
+
+/* Scale in animation for search results */
+.search-result-container {
+    animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

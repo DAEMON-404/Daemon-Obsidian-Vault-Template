@@ -1,0 +1,30 @@
+# Operating-system and editor noise
+.DS_Store
+**/.DS_Store
+*.log
+*.tmp
+__pycache__/
+*.py[cod]
+
+# ---------------------------------------------------------------------------
+# Obsidian runtime state inside the template vault.
+# ---------------------------------------------------------------------------
+# Local plugin/space caches and trash — never version these.
+/vault/.makemd/
+/vault/.trash/
+**/.space/
+**/context.mdb
+/vault/.obsidian/cache/
+/vault/.obsidian/workspace*.json
+
+# Community plugins are installed locally (in-app or via setup --download-plugins).
+# Keep the manifests as a lightweight version record; ignore the downloaded
+# bundles, assets, and per-device settings (data.json may contain credentials).
+/vault/.obsidian/plugins/*/**
+!/vault/.obsidian/plugins/*/manifest.json
+
+# Downloaded icon packs (re-fetched in-app).
+/vault/.obsidian/icons/
+
+# Local development worktrees, if one is ever created.
+/.worktrees/
