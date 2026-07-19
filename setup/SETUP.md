@@ -61,12 +61,22 @@ template frontmatter, so they are safe to ignore if you don't need them.
 | `--force` | `-Force` | Copy into a non-empty target |
 | `--yes` | `-Yes` | Accept all defaults, never prompt |
 
-Non-interactive example:
+Non-interactive examples:
 
 ```bash
+# macOS / Linux
 ./setup/setup.sh ~/MyVault --yes --author "Ada Lovelace" \
   --institution "Example University" --course-tag CS101 --year-tag year-1
 ```
+
+```powershell
+# Windows (PowerShell)
+./setup/setup.ps1 -TargetDir "$HOME\MyVault" -Yes -Author "Ada Lovelace" `
+  -Institution "Example University" -CourseTag CS101 -YearTag year-1
+```
+
+With every identity value supplied and `-Yes` set, the script runs start to
+finish without a single prompt — handy for scripted or repeated vault creation.
 
 ## Community plugins
 
