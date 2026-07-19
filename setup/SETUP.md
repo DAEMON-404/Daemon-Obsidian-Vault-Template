@@ -66,13 +66,13 @@ Non-interactive examples:
 ```bash
 # macOS / Linux
 ./setup/setup.sh ~/MyVault --yes --author "Ada Lovelace" \
-  --institution "Example University" --course-tag CS101 --year-tag year-1
+  --institution "Example University" --course-tag CS101 --year-tag year-1 --download-plugins
 ```
 
 ```powershell
 # Windows (PowerShell)
 ./setup/setup.ps1 -TargetDir "$HOME\MyVault" -Yes -Author "Ada Lovelace" `
-  -Institution "Example University" -CourseTag CS101 -YearTag year-1
+  -Institution "Example University" -CourseTag CS101 -YearTag year-1 -DownloadPlugins
 ```
 
 With every identity value supplied and `-Yes` set, the script runs start to
